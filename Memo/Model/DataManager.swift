@@ -18,6 +18,20 @@ class DataManager {
         return persistentContainer.viewContext
     }
     
+    var list = [MemoEntity]()
+    
+    func fetch() {
+        let request = MemoEntity.fetchRequest()
+        // sorted
+        let sortByDateDesc = NSSortDescriptor(key: "insertDate", ascending: false)
+        request.sortDescriptors = [sortByDateDesc]
+        do {
+            list = try mainContext.fetch(request)
+        } catch {
+            print(error)
+        }
+    }
+    
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Memo")
