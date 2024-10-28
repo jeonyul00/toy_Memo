@@ -9,23 +9,29 @@
 /* Begin PBXBuildFile section */
 		ABF7667B2CCF50210041813C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF7667A2CCF50210041813C /* AppDelegate.swift */; };
 		ABF7667D2CCF50210041813C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF7667C2CCF50210041813C /* SceneDelegate.swift */; };
-		ABF7667F2CCF50210041813C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF7667E2CCF50210041813C /* ViewController.swift */; };
+		ABF7667F2CCF50210041813C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF7667E2CCF50210041813C /* ListViewController.swift */; };
 		ABF766822CCF50210041813C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = ABF766812CCF50210041813C /* Base */; };
 		ABF766852CCF50210041813C /* Memo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ABF766832CCF50210041813C /* Memo.xcdatamodeld */; };
 		ABF766872CCF50220041813C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABF766862CCF50220041813C /* Assets.xcassets */; };
 		ABF7668A2CCF50220041813C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = ABF766892CCF50220041813C /* Base */; };
+		ABF766942CCF7DBC0041813C /* MemoEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF766922CCF7DBC0041813C /* MemoEntity+CoreDataClass.swift */; };
+		ABF766952CCF7DBC0041813C /* MemoEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF766932CCF7DBC0041813C /* MemoEntity+CoreDataProperties.swift */; };
+		ABF766972CCF7E320041813C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF766962CCF7E320041813C /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		ABF766772CCF50210041813C /* Memo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF7667A2CCF50210041813C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABF7667C2CCF50210041813C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ABF7667E2CCF50210041813C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ABF7667E2CCF50210041813C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		ABF766812CCF50210041813C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ABF766842CCF50210041813C /* Memo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Memo.xcdatamodel; sourceTree = "<group>"; };
 		ABF766862CCF50220041813C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABF766892CCF50220041813C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABF7668B2CCF50220041813C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABF766922CCF7DBC0041813C /* MemoEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		ABF766932CCF7DBC0041813C /* MemoEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ABF766962CCF7E320041813C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +64,27 @@
 		ABF766792CCF50210041813C /* Memo */ = {
 			isa = PBXGroup;
 			children = (
+				ABF766912CCF7C3C0041813C /* Model */,
 				ABF7667A2CCF50210041813C /* AppDelegate.swift */,
 				ABF7667C2CCF50210041813C /* SceneDelegate.swift */,
-				ABF7667E2CCF50210041813C /* ViewController.swift */,
+				ABF7667E2CCF50210041813C /* ListViewController.swift */,
 				ABF766802CCF50210041813C /* Main.storyboard */,
 				ABF766862CCF50220041813C /* Assets.xcassets */,
 				ABF766882CCF50220041813C /* LaunchScreen.storyboard */,
 				ABF7668B2CCF50220041813C /* Info.plist */,
-				ABF766832CCF50210041813C /* Memo.xcdatamodeld */,
 			);
 			path = Memo;
+			sourceTree = "<group>";
+		};
+		ABF766912CCF7C3C0041813C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ABF766922CCF7DBC0041813C /* MemoEntity+CoreDataClass.swift */,
+				ABF766932CCF7DBC0041813C /* MemoEntity+CoreDataProperties.swift */,
+				ABF766832CCF50210041813C /* Memo.xcdatamodeld */,
+				ABF766962CCF7E320041813C /* DataManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +158,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABF7667F2CCF50210041813C /* ViewController.swift in Sources */,
+				ABF7667F2CCF50210041813C /* ListViewController.swift in Sources */,
+				ABF766942CCF7DBC0041813C /* MemoEntity+CoreDataClass.swift in Sources */,
+				ABF766952CCF7DBC0041813C /* MemoEntity+CoreDataProperties.swift in Sources */,
+				ABF766972CCF7E320041813C /* DataManager.swift in Sources */,
 				ABF7667B2CCF50210041813C /* AppDelegate.swift in Sources */,
 				ABF7667D2CCF50210041813C /* SceneDelegate.swift in Sources */,
 				ABF766852CCF50210041813C /* Memo.xcdatamodeld in Sources */,
