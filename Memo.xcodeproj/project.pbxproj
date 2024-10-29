@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB3230562CD0979A0069D1BF /* lipsum.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB3230552CD0979A0069D1BF /* lipsum.txt */; };
 		ABF7667B2CCF50210041813C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF7667A2CCF50210041813C /* AppDelegate.swift */; };
 		ABF7667D2CCF50210041813C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF7667C2CCF50210041813C /* SceneDelegate.swift */; };
 		ABF7667F2CCF50210041813C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF7667E2CCF50210041813C /* ListViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB3230552CD0979A0069D1BF /* lipsum.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = lipsum.txt; sourceTree = "<group>"; };
 		ABF766772CCF50210041813C /* Memo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF7667A2CCF50210041813C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABF7667C2CCF50210041813C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				ABF766862CCF50220041813C /* Assets.xcassets */,
 				ABF766882CCF50220041813C /* LaunchScreen.storyboard */,
 				ABF7668B2CCF50220041813C /* Info.plist */,
+				AB3230552CD0979A0069D1BF /* lipsum.txt */,
 			);
 			path = Memo;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			files = (
 				ABF766872CCF50220041813C /* Assets.xcassets in Resources */,
 				ABF7668A2CCF50220041813C /* Base in Resources */,
+				AB3230562CD0979A0069D1BF /* lipsum.txt in Resources */,
 				ABF766822CCF50210041813C /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

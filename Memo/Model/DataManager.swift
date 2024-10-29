@@ -32,6 +32,45 @@ class DataManager {
         }
     }
     
+    /// 개발 환경에서만
+    func insertDummyData() {
+#if DEBUG
+        let countRequest = MemoEntity.fetchRequest()
+        
+        do {
+            let count = try mainContext.count(for: countRequest)
+            if count > 0 { return }
+        } catch {
+            print(error)
+        }
+        
+        guard let path = Bundle.main.path(forResource: "lipsum", ofType: "txt") else { return }
+        do {
+            let source = try String(contentsOfFile: path) // file의 내용을 문자열로 반환
+            let sentences = source.components(separatedBy: .newlines).filter { $0.trimmingCharacters(in: .whitespacesAndNewlines).count > 0 }
+            
+            var dataList = [[String: Any]]()
+            
+            for sentence in sentences {
+                //                let memo = MemoEntity(context: mainContext)
+                //                memo.content = sentence
+                //                // 랜덤 날짜 생성
+                //                memo.insertDate = Date(timeIntervalSinceNow: Double.random(in: 0...3600 * 24 * 30) * -1)
+                dataList.append(["content": sentence, "insertDate": Date(timeIntervalSinceNow: Double.random(in: 0...3600 * 24 * 30) * -1)
+                                ])
+            }
+            let insertRequest = NSBatchInsertRequest(entityName: "Memo", objects: dataList)
+            if let result = try mainContext.execute(insertRequest) as? NSBatchInsertResult, let succeeded = result.result as? Bool {
+                if succeeded {
+                    print("batch insert success")
+                }
+            }
+        } catch {
+            print(error)
+        }
+#endif
+    }
+    
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Memo")
@@ -42,7 +81,7 @@ class DataManager {
         })
         return container
     }()
-
+    
     // MARK: - Core Data Saving support
     func saveContext () {
         let context = persistentContainer.viewContext
@@ -55,7 +94,7 @@ class DataManager {
             }
         }
     }
-
-
+    
+    
     
 }
