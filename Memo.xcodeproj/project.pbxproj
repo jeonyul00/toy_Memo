@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AB3230562CD0979A0069D1BF /* lipsum.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB3230552CD0979A0069D1BF /* lipsum.txt */; };
+		AB3230582CD0A4420069D1BF /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3230572CD0A4420069D1BF /* ComposeViewController.swift */; };
 		ABF7667B2CCF50210041813C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF7667A2CCF50210041813C /* AppDelegate.swift */; };
 		ABF7667D2CCF50210041813C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF7667C2CCF50210041813C /* SceneDelegate.swift */; };
 		ABF7667F2CCF50210041813C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF7667E2CCF50210041813C /* ListViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		AB3230552CD0979A0069D1BF /* lipsum.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = lipsum.txt; sourceTree = "<group>"; };
+		AB3230572CD0A4420069D1BF /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		ABF766772CCF50210041813C /* Memo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF7667A2CCF50210041813C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABF7667C2CCF50210041813C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				ABF766912CCF7C3C0041813C /* Model */,
 				ABF7667A2CCF50210041813C /* AppDelegate.swift */,
 				ABF7667C2CCF50210041813C /* SceneDelegate.swift */,
+				AB3230572CD0A4420069D1BF /* ComposeViewController.swift */,
 				ABF7667E2CCF50210041813C /* ListViewController.swift */,
 				ABF766802CCF50210041813C /* Main.storyboard */,
 				ABF766862CCF50220041813C /* Assets.xcassets */,
@@ -165,6 +168,7 @@
 				ABF7667F2CCF50210041813C /* ListViewController.swift in Sources */,
 				ABF766942CCF7DBC0041813C /* MemoEntity+CoreDataClass.swift in Sources */,
 				ABF766952CCF7DBC0041813C /* MemoEntity+CoreDataProperties.swift in Sources */,
+				AB3230582CD0A4420069D1BF /* ComposeViewController.swift in Sources */,
 				ABF766972CCF7E320041813C /* DataManager.swift in Sources */,
 				ABF7667B2CCF50210041813C /* AppDelegate.swift in Sources */,
 				ABF7667D2CCF50210041813C /* SceneDelegate.swift in Sources */,

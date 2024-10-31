@@ -52,10 +52,6 @@ class DataManager {
             var dataList = [[String: Any]]()
             
             for sentence in sentences {
-                //                let memo = MemoEntity(context: mainContext)
-                //                memo.content = sentence
-                //                // 랜덤 날짜 생성
-                //                memo.insertDate = Date(timeIntervalSinceNow: Double.random(in: 0...3600 * 24 * 30) * -1)
                 dataList.append(["content": sentence, "insertDate": Date(timeIntervalSinceNow: Double.random(in: 0...3600 * 24 * 30) * -1)
                                 ])
             }
@@ -69,6 +65,15 @@ class DataManager {
             print(error)
         }
 #endif
+    }
+    
+    func insertMemo(memo: String) {
+        let newMemo = MemoEntity(context: mainContext)
+        newMemo.content = memo
+        newMemo.insertDate = .now
+        saveContext()
+        list.insert(newMemo, at: 0)
+        
     }
     
     // MARK: - Core Data stack

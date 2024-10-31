@@ -16,6 +16,14 @@ class ListViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         DataManager.shared.fetch()
+        
+        NotificationCenter.default.addObserver(forName: .memoDidInsert, object: nil, queue: .main) { _ in
+            // self.tableView.reloadData() // 이건 전부 리셋
+            // 0번 인덱스에 데이터 추가
+            let indexPath = IndexPath(row: 0, section: 0)
+            self.tableView.insertRows(at: [indexPath], with: .automatic)
+        }
+        
     }
     
     
@@ -30,7 +38,7 @@ extension ListViewController:UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let target = DataManager.shared.list[indexPath.row]
         cell.textLabel?.text = target.content
-        cell.detailTextLabel?.text = target.insertDate?.description
+        cell.detailTextLabel?.text = target.dateString
         return cell
     }
 }
