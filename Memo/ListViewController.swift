@@ -56,6 +56,10 @@ class ListViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.setupSearchBar()
+    }
+    
     // 데이터 전달
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
@@ -63,6 +67,30 @@ class ListViewController: UIViewController {
                 vc.memo = DataManager.shared.list[indexPath.row]
             }
         }
+    }
+    
+    func setupSearchBar() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "메모 내용으로 검색해 보세요."
+        searchController.searchResultsUpdater = self // 검색어 입력할 때마다 updateSearchResults 호출
+        navigationItem.searchController = searchController
+        
+    }
+}
+
+
+// MARK: - Search Bar
+extension ListViewController:UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        defer {
+            tableView.reloadData()
+        }
+        
+        guard let keyword = searchController.searchBar.text, keyword.count > 0 else {
+            DataManager.shared.fetch()
+            return
+        }
+        DataManager.shared.fetch(keyword: keyword)
     }
 }
 

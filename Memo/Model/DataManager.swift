@@ -20,10 +20,17 @@ class DataManager {
     
     var list = [MemoEntity]()
     
-    func fetch() {
+    func fetch(keyword:String? = nil) {
         let request = MemoEntity.fetchRequest()
+        
+        // 검색
+        if let keyword {
+            request.predicate = NSPredicate(format: "%K content CONTAINS [c] %@",#keyPath(MemoEntity.content), keyword)
+        }
+        
+        
         // sorted
-        let sortByDateDesc = NSSortDescriptor(key: "insertDate", ascending: false)
+        let sortByDateDesc = NSSortDescriptor(keyPath: \MemoEntity.insertDate, ascending: false)
         request.sortDescriptors = [sortByDateDesc]
         do {
             list = try mainContext.fetch(request)
@@ -97,7 +104,7 @@ class DataManager {
         _ = delete(entity: target)
         
     }
-        
+    
     
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
