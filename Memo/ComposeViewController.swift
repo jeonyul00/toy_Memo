@@ -16,16 +16,21 @@ class ComposeViewController: UIViewController {
     
     @IBOutlet weak var contentTextView: UITextView!
     var editTarget: MemoEntity?
+    var originContent = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let editTarget {
             navigationItem.title = "edit memo"
             contentTextView.text = editTarget.content
+            originContent = editTarget.content ?? ""
         } else {
             navigationItem.title = "new memo"
-        }        
+            contentTextView.text = ""
+        }
         contentTextView.becomeFirstResponder() // 키보드 올리기
+        
+        contentTextView.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,4 +56,17 @@ class ComposeViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
+}
+
+extension ComposeViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        if let _ = editTarget {
+            // 뷰 컨트롤로의 동작을 결정 => 드래그로 모달 닫을 수 있냐 없냐
+            isModalInPresentation = originContent != textView.text
+        } else {
+            // 뷰 컨트롤로의 동작을 결정 => 드래그로 모달 닫을 수 있냐 없냐
+            isModalInPresentation = !textView.text.isEmpty
+        }
+        
+    }
 }

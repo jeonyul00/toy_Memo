@@ -93,10 +93,11 @@
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mdf-FS-EVf"/>
+                        <keyboardLayoutGuide key="keyboard" id="peW-cq-rci"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="DFH-OR-SJF" firstAttribute="leading" secondItem="Mdf-FS-EVf" secondAttribute="leading" id="1Ub-Jm-nVS"/>
-                            <constraint firstItem="DFH-OR-SJF" firstAttribute="bottom" secondItem="Mdf-FS-EVf" secondAttribute="bottom" id="e3F-pa-XKM"/>
+                            <constraint firstItem="DFH-OR-SJF" firstAttribute="bottom" secondItem="peW-cq-rci" secondAttribute="top" id="e3F-pa-XKM"/>
                             <constraint firstItem="DFH-OR-SJF" firstAttribute="trailing" secondItem="Mdf-FS-EVf" secondAttribute="trailing" id="r1P-jy-COb"/>
                             <constraint firstItem="DFH-OR-SJF" firstAttribute="top" secondItem="b4a-uS-SBd" secondAttribute="top" id="u4E-xl-DyJ"/>
                         </constraints>
