@@ -44,6 +44,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ewq-qH-vIs" kind="show" id="58A-Qz-R4L"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -70,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1063.3587786259541" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1097" y="411"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="BTa-Kc-lQu">
@@ -134,7 +137,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qs1-5x-Bnb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.64122137404578" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="163" y="411"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rb6-13-S8D">
@@ -153,6 +156,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7H-eh-MmQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2005" y="4"/>
+        </scene>
+        <!--메모 보기-->
+        <scene sceneID="Ii8-rI-3Us">
+            <objects>
+                <viewController id="ewq-qH-vIs" customClass="DetailViewController" customModule="Memo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QyI-dr-gpo">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QPN-Mc-bgy">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cud-W8-Y24">
+                                <rect key="frame" x="0.0" y="769" width="393" height="49"/>
+                                <items>
+                                    <barButtonItem title="Item" id="Sl3-Uf-NO3"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1Pb-fd-Ull"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cud-W8-Y24" firstAttribute="top" secondItem="QPN-Mc-bgy" secondAttribute="bottom" id="5mV-JI-YMX"/>
+                            <constraint firstItem="cud-W8-Y24" firstAttribute="bottom" secondItem="1Pb-fd-Ull" secondAttribute="bottom" id="Ec6-ec-fhy"/>
+                            <constraint firstItem="QPN-Mc-bgy" firstAttribute="leading" secondItem="1Pb-fd-Ull" secondAttribute="leading" id="Sui-GX-Hwb"/>
+                            <constraint firstItem="QPN-Mc-bgy" firstAttribute="trailing" secondItem="1Pb-fd-Ull" secondAttribute="trailing" id="Vpy-vk-S4u"/>
+                            <constraint firstItem="cud-W8-Y24" firstAttribute="trailing" secondItem="1Pb-fd-Ull" secondAttribute="trailing" id="Ygx-fH-m1e"/>
+                            <constraint firstItem="QPN-Mc-bgy" firstAttribute="top" secondItem="QyI-dr-gpo" secondAttribute="top" id="lOQ-qU-01Z"/>
+                            <constraint firstItem="cud-W8-Y24" firstAttribute="leading" secondItem="1Pb-fd-Ull" secondAttribute="leading" id="wGa-br-jxq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="메모 보기" largeTitleDisplayMode="never" id="hwq-EM-rJv"/>
+                    <connections>
+                        <outlet property="textView" destination="QPN-Mc-bgy" id="uaM-XZ-Ysb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="myq-Yu-zST" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2003.8167938931297" y="704.92957746478874"/>
         </scene>
     </scenes>
     <resources>

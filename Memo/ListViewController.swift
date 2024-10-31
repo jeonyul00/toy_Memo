@@ -26,7 +26,14 @@ class ListViewController: UIViewController {
         
     }
     
-    
+    // 데이터 전달
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+            if let vc = segue.destination as? DetailViewController {
+                vc.memo = DataManager.shared.list[indexPath.row]
+            }
+        }
+    }
 }
 
 extension ListViewController:UITableViewDataSource, UITableViewDelegate {
@@ -41,4 +48,10 @@ extension ListViewController:UITableViewDataSource, UITableViewDelegate {
         cell.detailTextLabel?.text = target.dateString
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
+
+
