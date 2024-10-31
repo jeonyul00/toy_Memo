@@ -81,6 +81,24 @@ class DataManager {
         saveContext()
     }
     
+    func delete(entity: MemoEntity) -> Int? {
+        mainContext.delete(entity)
+        saveContext()
+        
+        if let index = list.firstIndex(of: entity) {
+            list.remove(at: index)
+            return index
+        }
+        return nil
+    }
+    
+    func delete(at index: Int){
+        let target = list[index]
+        _ = delete(entity: target)
+        
+    }
+        
+    
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Memo")

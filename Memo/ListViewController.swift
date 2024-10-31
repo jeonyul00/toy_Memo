@@ -11,6 +11,7 @@ class ListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var reloadTargetIndexPath: IndexPath?
+    var deleteTargetIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,14 @@ class ListViewController: UIViewController {
                 self?.reloadTargetIndexPath = indexPath
             }
         }
+        
+        NotificationCenter.default.addObserver(forName: .memoDidDelete, object: nil, queue: .main) { [weak self] noti in
+            guard let self else { return }
+            if let index = noti.userInfo?["index"] as? Int {
+                let indexPath = IndexPath(row: index, section: 0)
+                self.deleteTargetIndexPath = indexPath
+            }
+        }
     }
     
     // rootview가 계층에 추가되고 화면에 표시되기 전
@@ -39,6 +48,11 @@ class ListViewController: UIViewController {
         if let reloadTargetIndexPath {
             tableView.reloadRows(at: [reloadTargetIndexPath], with: .automatic)
             self.reloadTargetIndexPath = nil
+        }
+        
+        if let deleteTargetIndexPath {
+            tableView.deleteRows(at: [deleteTargetIndexPath], with: .automatic)
+            self.deleteTargetIndexPath = nil
         }
     }
     
@@ -67,6 +81,14 @@ extension ListViewController:UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // tableView에서 스와이프 활성화
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            DataManager.shared.delete(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 }
 
