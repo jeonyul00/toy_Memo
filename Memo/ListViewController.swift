@@ -10,6 +10,7 @@ import UIKit
 class ListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    var reloadTargetIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,20 +18,28 @@ class ListViewController: UIViewController {
         self.tableView.delegate = self
         DataManager.shared.fetch()
         
-        NotificationCenter.default.addObserver(forName: .memoDidInsert, object: nil, queue: .main) { _ in
+        NotificationCenter.default.addObserver(forName: .memoDidInsert, object: nil, queue: .main) { [weak self] _ in
             // self.tableView.reloadData() // 이건 전부 리셋
             // 0번 인덱스에 데이터 추가
             let indexPath = IndexPath(row: 0, section: 0)
-            self.tableView.insertRows(at: [indexPath], with: .automatic)
+            self?.tableView.insertRows(at: [indexPath], with: .automatic)
         }
         
-        NotificationCenter.default.addObserver(forName: .memoDidUpdate, object: nil, queue: .main) { noti in
+        NotificationCenter.default.addObserver(forName: .memoDidUpdate, object: nil, queue: .main) { [weak self] noti in
             if let memo = noti.userInfo?["momo"] as? MemoEntity, let index = DataManager.shared.list.firstIndex(of: memo) {
                 let indexPath = IndexPath(row: index, section: 0)
-                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                // self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                self?.reloadTargetIndexPath = indexPath
             }
         }
-        
+    }
+    
+    // rootview가 계층에 추가되고 화면에 표시되기 전
+    override func viewIsAppearing(_ animated: Bool) {
+        if let reloadTargetIndexPath {
+            tableView.reloadRows(at: [reloadTargetIndexPath], with: .automatic)
+            self.reloadTargetIndexPath = nil
+        }
     }
     
     // 데이터 전달

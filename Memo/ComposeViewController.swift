@@ -24,8 +24,7 @@ class ComposeViewController: UIViewController {
             contentTextView.text = editTarget.content
         } else {
             navigationItem.title = "new memo"
-        }
-        
+        }        
         contentTextView.becomeFirstResponder() // 키보드 올리기
     }
     
