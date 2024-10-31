@@ -175,7 +175,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cud-W8-Y24">
                                 <rect key="frame" x="0.0" y="769" width="393" height="49"/>
                                 <items>
-                                    <barButtonItem title="Item" id="Sl3-Uf-NO3"/>
+                                    <barButtonItem systemItem="compose" id="Sl3-Uf-NO3">
+                                        <connections>
+                                            <segue destination="AQJ-z0-30I" kind="presentation" id="cor-Et-0UD"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -201,6 +205,9 @@
             <point key="canvasLocation" x="2003.8167938931297" y="704.92957746478874"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="cor-Et-0UD"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

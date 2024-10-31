@@ -75,12 +75,12 @@
 				ABF7667C2CCF50210041813C /* SceneDelegate.swift */,
 				AB3230572CD0A4420069D1BF /* ComposeViewController.swift */,
 				ABF7667E2CCF50210041813C /* ListViewController.swift */,
+				ABC5296C2CD3113D0037E20D /* DetailViewController.swift */,
 				ABF766802CCF50210041813C /* Main.storyboard */,
 				ABF766862CCF50220041813C /* Assets.xcassets */,
 				ABF766882CCF50220041813C /* LaunchScreen.storyboard */,
 				ABF7668B2CCF50220041813C /* Info.plist */,
 				AB3230552CD0979A0069D1BF /* lipsum.txt */,
-				ABC5296C2CD3113D0037E20D /* DetailViewController.swift */,
 			);
 			path = Memo;
 			sourceTree = "<group>";

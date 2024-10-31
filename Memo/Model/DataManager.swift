@@ -76,6 +76,11 @@ class DataManager {
         
     }
     
+    func update(entity: MemoEntity, with content: String) {
+        entity.content = content
+        saveContext()
+    }
+    
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Memo")

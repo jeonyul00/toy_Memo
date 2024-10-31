@@ -24,6 +24,13 @@ class ListViewController: UIViewController {
             self.tableView.insertRows(at: [indexPath], with: .automatic)
         }
         
+        NotificationCenter.default.addObserver(forName: .memoDidUpdate, object: nil, queue: .main) { noti in
+            if let memo = noti.userInfo?["momo"] as? MemoEntity, let index = DataManager.shared.list.firstIndex(of: memo) {
+                let indexPath = IndexPath(row: index, section: 0)
+                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        }
+        
     }
     
     // 데이터 전달

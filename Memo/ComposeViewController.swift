@@ -9,15 +9,23 @@ import UIKit
 
 extension Notification.Name {
     static let memoDidInsert = Notification.Name("memoDidInsert")
+    static let memoDidUpdate = Notification.Name("memoDidUpdate")
 }
 
 class ComposeViewController: UIViewController {
     
     @IBOutlet weak var contentTextView: UITextView!
+    var editTarget: MemoEntity?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "new memo"
+        if let editTarget {
+            navigationItem.title = "edit memo"
+            contentTextView.text = editTarget.content
+        } else {
+            navigationItem.title = "new memo"
+        }
+        
         contentTextView.becomeFirstResponder() // 키보드 올리기
     }
     
@@ -33,8 +41,14 @@ class ComposeViewController: UIViewController {
     @IBAction func save(_ sender: Any) {
         // TODO: 경고창 추가
         guard let text = contentTextView.text, text.count > 0 else { return }
-        DataManager.shared.insertMemo(memo: text)
-        NotificationCenter.default.post(name: .memoDidInsert, object: nil)
+        if let editTarget {
+            DataManager.shared.update(entity: editTarget, with: text)
+            NotificationCenter.default.post(name: .memoDidUpdate, object: nil, userInfo: ["memo": editTarget])
+
+        } else {
+            DataManager.shared.insertMemo(memo: text)
+            NotificationCenter.default.post(name: .memoDidInsert, object: nil)
+        }
         self.dismiss(animated: true)
     }
     
